@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Super Sprinter 3000</title>
+</head>
+
+<body>
+    <h1>Super Sprinter 3000</h1>
+    <br>
+    <a href="/story">Add new User Story</a>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Story Title</th>
+            <th>User Story</th>
+            <th>Acceptance Criteria</th>
+            <th>Business Value</th>
+            <th>Estimation</th>
+            <th>Status</th>
+        </tr>
+        {% if stories %}
+        {% for id, story in stories.items() %}
+        <tr>
+            <td>{{ id }}</td>
+            {% for key, value in story.items() %}
+                {% if key == 'title' %}
+                    <td><a href="/story/{{ id }}">{{ value }}</td></td>
+                {% else %}
+                    <td>{{ value }}</td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        {% endif %}
+</table>
+</body>
+</html>
